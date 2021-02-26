@@ -2,7 +2,7 @@ import React from 'react';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import {auth, signInWithGoogle } from '../../firebase/firebase.utils';
+import {auth, signInWithGoogle} from '../../firebase/firebase.utils';
 
 import './signin.styles.scss'
 
@@ -32,7 +32,6 @@ class Signin extends React.Component{
 
     handleChange = (event) => {
         const { value, name} =  event.target;
-
         this.setState({[name]: value})
     }
 
@@ -60,7 +59,6 @@ class Signin extends React.Component{
                         autoComplete="off"
                         required
                     />
-                    
                     <div className='buttons'>
                         <CustomButton
                             type='submit'
@@ -78,8 +76,6 @@ class Signin extends React.Component{
             </div>
         )
     }
-
-
 }
 
 export default Signin;

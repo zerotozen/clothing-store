@@ -3,20 +3,21 @@ import { Switch,  Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import './App.css';
 
+import Header from './components/header-component/header.component';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import SigninSignupPage from './pages/signin-signup/signin-signup.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 
-import Header from './components/header-component/header.component';
+import { GlobalStyle } from './global.styles';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import setCurrentUser from './redux/user/user.actions';
 import { toggleCartHidden } from './redux/cart/cart.action';
-import { selectCurrentUser } from './redux/user/user.selectos';
+import { selectCurrentUser } from './redux/user/user.selector';
+
 
 class App extends React.Component{
   unsubscribeFromAuth = null;
@@ -45,7 +46,7 @@ class App extends React.Component{
         });
         
       }else{
-        setCurrentUser(userAuth)
+        setCurrentUser(userAuth);
       }
     });
   }
@@ -59,6 +60,7 @@ class App extends React.Component{
     const { hideCartDropdown } = this.props
     return (
       <div>
+        <GlobalStyle/>
         <Header/>
         <Switch hideCartDropdown={hideCartDropdown}>
           <Route exact={true} path='/' component = {HomePage} hideCartDropdown={hideCartDropdown} />
@@ -83,9 +85,7 @@ class App extends React.Component{
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
-
-
+  currentUser: selectCurrentUser,
 })
 
 
