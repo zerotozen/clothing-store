@@ -1,9 +1,5 @@
 # Getting Started with Create React App
 
-There is a CORS issue in Firefox 
-(fixing) but it works perfectly in Chrome.
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
